@@ -1,0 +1,174 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--card-bg);
+  box-shadow: 0px 2px 16px #00000048;
+}
+
+.mode {
+  width: 80px;
+  height: 40px;
+  background: var(--card-bg);
+  position: relative;
+  top: 40px;
+  left: 30px;
+  /* margin: 30px; */
+  border-radius: 50px;
+  box-shadow: 0 0 15px var(--card-bg);
+}
+
+.mode-circle {
+  width: 30px;
+  height: 30px;
+  background-color: var(--btn-bg);
+  border-radius: 50px;
+  position: absolute;
+  margin: 5px;
+  cursor: pointer;
+}
+.mode-circle.right {
+  right: 0;
+}
+h1,
+h2 {
+  font-family: "Montserrat", serif;
+  letter-spacing: 3px;
+  color: var(--head-text);
+}
+h1 {
+  text-align: center;
+  font-size: 25px;
+}
+h2 {
+  font-size: 20px;
+}
+
+input {
+  border: none;
+  padding: 18px 5px 18px 20px;
+  flex-basis: 60%;
+  border-radius: 40px;
+  background: var(--task-bg);
+  font-size: 16px;
+  color: var(--text);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+input::placeholder {
+  color: var(--text);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+input:focus {
+  outline: var(--text);
+  filter: drop-shadow(0px 5px 7px var(--btn-bg));
+}
+
+.main-form,
+.task-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px auto 0;
+}
+
+form,
+.task-list_container {
+  width: 50%;
+  margin-top: 20px;
+}
+
+.form-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.form-inner input {
+  width: 60%;
+}
+
+.behind-msg {
+  font-size: 18px;
+  color: var(--text);
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+}
+.edited{
+  font-size: 13px;
+  color: #7c7c7c;
+  font-style:oblique;
+  font-weight: 500;
+}
+
+.warning{
+  background: var(--card-bg);
+  padding: 10px;
+  font-size: 13px;
+  color: var(--text);
+  position: relative;
+  bottom: 15px;
+  left: 15%;
+  border-radius: 40px;
+  animation-name: warn;
+  animation-timing-function: linear;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  visibility: visible;
+}
+@keyframes warn {
+  0%,100%{
+    opacity: 0.6;
+  }
+  50%{
+    opacity: 1;
+  }
+}
+.warning::after{
+  content: "▼";
+  color: var(--card-bg);
+  top: 30px;
+  left: 20px;
+  position: absolute;
+}
+
+.hidden{
+  visibility: hidden;
+}
+
+@media (max-width: 770px) and (min-width: 368px) {
+  .mode {
+    width: 55px;
+    height: 30px;
+    margin-bottom: 20px;
+  }
+  .mode-circle {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 568px) and (min-width: 324px) {
+ 
+  .mode {
+    width: 55px;
+    height: 30px;
+    margin-bottom: 20px;
+  }
+  .mode-circle {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .warning{
+    left: 7% ;
+  }
+  .warning::after{
+    top: 28px;
+  }
+}

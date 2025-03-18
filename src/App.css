@@ -1,0 +1,59 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: linear-gradient(to top, var(--bg1), var(--bg2));
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+}
+
+.light {
+  --bg1: #aed581;
+  --bg2: #355D8C;
+  --card-bg: #aed581;
+  --task-bg: #c1f4c5;
+  --btn-bg: #2f5974;
+  --btn-hover: #30496b;
+  --text: #524a4e;
+  --head-text: #ffffff;
+  --icon-color: #25436e;
+  --icon-hover: #457B9D;
+}
+
+.dark {
+  --bg1: #0D1117;
+  --bg2: #161B22;
+  --card-bg: #2d3e52;
+  --task-bg: #1e2b36;
+  --btn-bg: #4C9ED9;
+  --btn-hover: #1C6EAB;
+  --text: #b5c1ce;
+  --head-text: #81A1C1;
+  --icon-color: #81A1C1;
+  --icon-hover: #e5f2ff;
+}
+
+
+button {
+  cursor: pointer;
+}
+.btn {
+  font-family: 'Montserrat', sans-serif;
+  width: 90px;
+  height: 50px;
+  background: var(--btn-bg);
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  transition: 0.15s ease-in-out;
+  border-radius: 40px;
+}
+
+.btn:hover {
+  background: var(--btn-hover);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
