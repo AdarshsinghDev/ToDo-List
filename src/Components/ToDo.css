@@ -99,12 +99,7 @@ form,
   margin-top: 20px;
   font-style: italic;
 }
-.edited{
-  font-size: 13px;
-  color: #7c7c7c;
-  font-style:oblique;
-  font-weight: 500;
-}
+
 
 .warning{
   background: var(--card-bg);

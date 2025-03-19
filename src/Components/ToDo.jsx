@@ -18,6 +18,7 @@ function ToDo() {
     const rawTodo = localStorage.getItem(todoKey);
     return rawTodo ? JSON.parse(rawTodo) : [];
   });
+  const [isEdited, setIsEdited] = useState(false);
 
   const handleToggle = () => {
     document.body.classList.toggle("dark");
@@ -27,7 +28,7 @@ function ToDo() {
 
   const handleInputValue = (event) => {
     setInputValue(event.target.value);
-    if (inputValue === task.includes(inputValue)) {
+    if (task.some((t) => t.text === event.target.value)) {
       setStyle("warning");
     } else {
       setStyle("hidden");
@@ -43,7 +44,8 @@ function ToDo() {
       setStyle("warning");
       return;
     } else {
-      setTask((prevState) => [...prevState, inputValue]);
+      const newTask = { text: inputValue, edited: false };
+      setTask((prevState) => [...prevState, newTask]);
       setPrevTaskLength(task.length);
       setInputValue("");
     }
@@ -69,7 +71,7 @@ function ToDo() {
 
   const handleEdit = (index) => {
     setEditText(true);
-    setInputValue(task[index]);
+    setInputValue(task[index].text);
     setEditedIndex(index);
   };
 
@@ -77,7 +79,9 @@ function ToDo() {
     if (!inputValue.trim() || editedIndex === null) return;
 
     const updatedTask = task.map((currentTask, index) =>
-      index === editedIndex ? `${inputValue} : Edited` : currentTask
+      index === editedIndex
+        ? { ...currentTask, text: inputValue, edited: true }
+        : currentTask
     );
 
     setTask(updatedTask);
@@ -141,10 +145,11 @@ function ToDo() {
               return (
                 <TaskCard
                   key={index}
-                  taskText={currentTask}
+                  taskText={currentTask.text} 
                   addedTime={time}
                   delFunc={() => handleDelete(index)}
                   editFunc={() => handleEdit(index)}
+                  textEdited={currentTask.edited ? ": Edited" : ""}
                 />
               );
             })}

@@ -46,6 +46,13 @@
   font-weight: 600;
 }
 
+.edited{
+  font-size: 13px;
+  color: #7c7c7c;
+  font-style:oblique;
+  font-weight: 500;
+}
+
 @media (max-width: 770px) and (min-width: 368px) {
   input {
     padding: 18px 15px 15px;
